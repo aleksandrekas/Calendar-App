@@ -1,0 +1,44 @@
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+#container{
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+#daysHeader{
+  width: 700px;
+  display: flex;
+  justify-content: space-between;
+
+}
+
+#daysHeader div{
+  text-align: center;
+  width: 100px;
+  color: rgb(97, 141, 179);
+  margin-bottom: 1rem;
+}
+
+
+
+#calendarBody{
+  width: 714px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#day{
+  width: 100px;
+  height: 100px;
+  background-color: aquamarine;
+  margin: 1px;
+}
+

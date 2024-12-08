@@ -1,4 +1,4 @@
-
+import Calendar from "./components/Calendar"
 
 
 
@@ -15,6 +15,7 @@ function App() {
         <div>Saturday</div>
         <div>Sunday</div>
       </div>
+      <Calendar/>
     </div>
   )
 
