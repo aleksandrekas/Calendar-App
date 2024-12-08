@@ -1,8 +1,8 @@
 
-export default function Day(){
+export default function Day({clas,content}){
     return(
-        <div id="day">
-            <div>1</div>
+        <div id="day" className={clas}>
+            <div>{content}</div>
         </div>
     )
 }
