@@ -1,18 +1,16 @@
 import { useEffect } from "react"
 import Calendar from "./components/Calendar"
 import { useState } from "react"
-
-const dt = new Date() 
+import { useSelector,useDispatch } from "react-redux"
+import { setDaysInMonth } from "./App/daysMonthSlice"
+// const dt = new Date() 
 
 
 function App() {
+  const monthDaysState = useSelector((state) => state.monthDays);
+  const dispatch = useDispatch()
   const [nav,setNav] = useState(0)
-  const [month , setMonth] = useState(dt) 
-  const [daysInMonth, setDaysInMonth] = useState({
-    firstDayOfMonth: 0,
-    totalDays:0,
-    paddingDays:0
-  });
+  const [month , setMonth] = useState(monthDaysState.date) 
 
 
 
@@ -23,18 +21,20 @@ function App() {
       setNav((state)=> state = state - 1 )
     }
   }
+
+  console.log(monthDaysState)
   
   
 
   useEffect(()=>{
 
-    const newMonth = new Date(dt.getFullYear(), dt.getMonth() + nav, 1);
+    const newMonth = new Date(monthDaysState.date.getFullYear(), monthDaysState.date.getMonth() + nav, 1);
     setMonth(newMonth)
     const firstDayOfMonth = newMonth.getDay();
     const totalDays = new Date(newMonth.getFullYear(), newMonth.getMonth() + 1, 0).getDate();
     const paddingDays = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1; 
-  
-    setDaysInMonth({ firstDayOfMonth, totalDays, paddingDays });
+    dispatch(setDaysInMonth({firstDayOfMonth,totalDays,paddingDays}))
+    
   },[nav])
 
 
@@ -57,7 +57,7 @@ function App() {
         <div>Saturday</div>
         <div>Sunday</div>
       </div>
-      <Calendar nav={nav} days={daysInMonth}/>
+      <Calendar />
     </div>
   )
 
