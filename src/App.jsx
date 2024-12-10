@@ -42,7 +42,7 @@ function App() {
   return(
     <div id="container">
       <div id="setMonthDiv">
-        <h4>{month.toLocaleDateString('en-US', { month: 'long'})}</h4>
+        <h4>{month.toLocaleDateString('ka-GE', { month: 'long'})}</h4>
         <div id="buttons">
           <button onClick={()=> handleNav("subtract")}>Previous</button>
           <button onClick={()=> handleNav("add")}>Next</button>

@@ -1,8 +1,12 @@
 
-export default function Day(){
+
+
+
+export default function Day({dayNum,typeClass,isCurrDay}){
+    console.log(isCurrDay)
     return(
-        <div id="day" >
-            <div>1</div>
+        <div className={`${isCurrDay ? "current":"" } ${typeClass}`} id="day" >
+            <div>{dayNum}</div>
         </div>
     )
 }
