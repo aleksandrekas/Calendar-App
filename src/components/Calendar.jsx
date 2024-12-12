@@ -20,8 +20,13 @@ export default function Calendar(){
                     dayNum === currentDay&&
                     monthDaysState.date.getMonth() === currentMonth &&
                     monthDaysState.date.getFullYear() === currentYear;
+
+
+                const dayString = `${monthDaysState.date.getMonth() +1}/${dayNum}/${monthDaysState.date.getFullYear()}`
+
+
                 return(
-                    <Day key={index} isCurrDay={isToday} typeClass={''} dayNum={dayNum} />
+                    <Day funcArg={dayString} key={index} isCurrDay={isToday} typeClass={''} dayNum={dayNum} />
                 )
             })}
         </div>
