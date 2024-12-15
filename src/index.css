@@ -8,6 +8,7 @@
 
 body{
   font-family: "Nunito Sans", sans-serif;
+  user-select: none;
 }
 
 
@@ -43,6 +44,9 @@ body{
 }
 
 #day{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 100px;
   height: 100px;
   background-color: aquamarine;
@@ -99,4 +103,78 @@ body{
 
 .current{
   outline: 2px solid rgb(141, 122, 207) !important;
+}
+
+
+
+
+#modalBackground{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+#modal{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 500px;
+  height: 300px;
+  background-color: white;
+  border-radius: 5px;
+  padding: 1rem;
+}
+
+
+h6{
+  font-size: 0.7rem;
+}
+
+.noEvent{
+  color: gray;
+}
+
+
+.modalBtn{
+  width: 70px;
+  height: 25px;
+  margin:0.2rem;
+  font-size: 0.7rem;
+  border: none;
+  border-radius: 4px;
+  background: rgb(141, 122, 207);
+  color:white ;
+  cursor: pointer;
+  text-align: center;
+}
+
+.modalForm input{
+  height: 25px;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid rgb(141, 122, 207);
+  padding: 0 0.5rem;
+  color: rgb(141, 122, 207);
+}
+
+#close{
+  background-color: white;
+  color: rgb(141, 122, 207);
+  border: 1px solid rgb(141, 122, 207);
+  margin-left: 8rem;
+}
+
+#close:hover{
+  background-color:rgb(141, 122, 207) ;
+  color: white;
+}
+
+
+#addEvent:hover{
+  background: rgb(172, 154, 238);
 }

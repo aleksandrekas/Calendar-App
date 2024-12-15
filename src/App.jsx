@@ -3,6 +3,7 @@ import Calendar from "./components/Calendar"
 import { useState } from "react"
 import { useSelector,useDispatch } from "react-redux"
 import { setDaysInMonth } from "./App/daysMonthSlice"
+import Modal from "./components/Modal"
 // const dt = new Date() 
 
 
@@ -41,7 +42,7 @@ function App() {
   return(
     <div id="container">
       <div id="setMonthDiv">
-        <h4>{month.toLocaleDateString('ka-GE', { month: 'long'})}</h4>
+        <h4>{month.toLocaleDateString('ka-GE', { month: 'long',year:'numeric'})}</h4>
         <div id="buttons">
           <button onClick={()=> handleNav("subtract")}>Previous</button>
           <button onClick={()=> handleNav("add")}>Next</button>
@@ -56,7 +57,8 @@ function App() {
         <div>Saturday</div>
         <div>Sunday</div>
       </div>
-      <Calendar />
+      <Calendar nav={nav}  />
+      <Modal />
     </div>
   )
 
