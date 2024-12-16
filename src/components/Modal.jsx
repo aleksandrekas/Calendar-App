@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useSelector,useDispatch } from "react-redux"
 import { setState } from "../App/modalSlice"
-import { addEvent,addNextEvent } from "../App/eventsSlice"
+import { addEvent,addNextEvent,removeEvent } from "../App/eventsSlice"
 
 
 export default function Modal(){
@@ -57,10 +57,20 @@ export default function Modal(){
     return (
         <div style={{display:`${display}`}} id="modalBackground">
             <div id="modal">
-                <h1 className={eventForCurrDay? '': "noEvent"}>{eventForCurrDay? eventForCurrDay.title:"No events to show"}</h1>
+                <ul >
+                    {eventForCurrDay && eventForCurrDay.title.length > 0 ? eventForCurrDay.title.map((item,eventIdx)=>(                     
+                        <li key={eventIdx}>
+                            {item}
+                            <button onClick={()=>{dispatch(removeEvent({index,eventIdx}))}} className="DelEvent">Remove</button>
+                        </li>
+                    )):<h1 className="noEvent">No events to show</h1>}
+                </ul>
                 <form  className="modalForm">
-                    <input onChange={(e)=> setInput(e.target.value)} value={input} type="text" />
-                    <button id="addEvent" className="modalBtn" onClick={addNewEvent}>Add event</button>
+                    <div>
+                        <input onChange={(e)=> setInput(e.target.value)} value={input} type="text" />
+                        <button id="addEvent" className="modalBtn" onClick={addNewEvent}>Add event</button>
+
+                    </div>
                     <button id="close" className="modalBtn" onClick={handleModalCloseAction}>Close</button>
 
                 </form>

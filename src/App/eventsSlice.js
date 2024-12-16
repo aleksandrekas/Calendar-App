@@ -20,9 +20,13 @@ const eventsSlice = createSlice({
                 state.events[index].title.push(input);
             }
         },
+        removeEvent:(state,action)=>{
+            const { index, eventIdx } = action.payload;
+            state.events[index].title.splice(eventIdx,1);
+        }
     }
 })
 
 
-export const {addTargetDate,addEvent,addNextEvent} = eventsSlice.actions
+export const {addTargetDate,addEvent,addNextEvent,removeEvent} = eventsSlice.actions
 export default eventsSlice.reducer
